@@ -3,7 +3,8 @@ from selenium.webdriver.common.by import By
 
 
 class PageObject:
-    class_title_page = '[""]'
+    #class_title_page = '[""]'
+    class_option_popup_delete = 'orangehrm-modal-footer'
 
     def __init__(self, driver=None, browser=None):
         if driver:
@@ -33,3 +34,11 @@ class PageObject:
 
     def check_page(self, url, title_text):
         return self.is_url(url) and self.has_title(title_text)
+
+    def click_yes_delete_btn_modal(self):
+        option = 'Yes, Delete'
+        options_popup_delete = self.driver.find_elements(By.CLASS_NAME, self.class_option_popup_delete)
+        for i in range(len(options_popup_delete)):
+            current_option = options_popup_delete[i]
+            if option in current_option.text:
+                current_option.click()

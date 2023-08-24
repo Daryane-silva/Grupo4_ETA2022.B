@@ -11,4 +11,5 @@ class Test01:
         admin_p.open_admin_page()
         assert admin_p.is_url_admin(), 'Página Admin não encontrada!'
         admin_p.order_username()
+        assert admin_p.check_username_order(), 'Nomes dos usuários não foram ordenados!'
 

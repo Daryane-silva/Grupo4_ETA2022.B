@@ -9,6 +9,7 @@ from pages.PageObject import PageObject
 class MenuPage(PageObject):
 
     id_menu_btn = 'react-burger-menu-btn'
+    att_pim_option = '[href="/web/index.php/pim/viewPimModule"]'
 
 
     def __init__(self, driver):
@@ -29,3 +30,8 @@ class MenuPage(PageObject):
         logout_menu_item = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((
             By.ID, self.id_logout_menu_item)))
         logout_menu_item.click()
+
+    def click_pim_option(self):
+        pim_option = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((
+            By.CSS_SELECTOR, self.att_pim_option)))
+        pim_option.click()

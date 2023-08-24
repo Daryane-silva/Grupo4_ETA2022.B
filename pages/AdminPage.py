@@ -45,11 +45,18 @@ class AdminPage(PageObject):
         ascending.click()
 
     def check_username_order(self):
+        names = []
         WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, self.table_class)))
         table = self.driver.find_element(By.CLASS_NAME, self.table_class)
         cards = table.find_elements(By.CLASS_NAME, self.table_card_class)
         for card in cards:
-            cells = card.find_elements(By.CLASS_NAME, self.table_cell_class)
-            
+            children = card.find_elements(By.CLASS_NAME, self.table_cell_class)
+            names.append(children[1].text.lower())
+        for i in range(len(names)-1):
+            current_name = names[i]
+            next_name = names[i+1]
+            if current_name > next_name:
+                return False
+        return True
 
 

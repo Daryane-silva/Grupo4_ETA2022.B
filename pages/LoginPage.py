@@ -14,6 +14,7 @@ class LoginPage(PageObject):
 
     def __init__(self, browser):
         super(LoginPage, self).__init__(browser=browser)
+        self.driver.implicitly_wait(10)
         self.driver.get(self.url)
 
     def click_login_btn(self):
