@@ -4,7 +4,7 @@ from pages.PIMPage import PIMPage
 from pages.MenuPage import MenuPage
 
 
-class TestFindEmployee:
+class Test03:
 
     def test_find_employee_by_name(self, add_employee):
         menu_page = MenuPage(driver=add_employee.driver)

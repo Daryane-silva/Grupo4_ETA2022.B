@@ -7,7 +7,7 @@ from pages.AddEmployeePage import AddEmployeePage
 from pages.MenuPage import MenuPage
 
 
-class TestNewEmployee:
+class Test02:
 
     firstname = 'Roberto'
     middlename = 'Mendes'

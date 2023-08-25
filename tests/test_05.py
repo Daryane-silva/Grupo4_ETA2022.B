@@ -2,7 +2,7 @@ from pages.PIMPage import PIMPage
 from pages.MenuPage import MenuPage
 
 
-class TestDeleteEmployee:
+class Test05:
 
     def test_delete_employee_by_name(self, add_employee):
         menu_page = MenuPage(driver=add_employee.driver)
