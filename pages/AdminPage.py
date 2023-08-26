@@ -1,8 +1,6 @@
-import time
-
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 from pages.PageObject import PageObject
 
@@ -21,6 +19,7 @@ class AdminPage(PageObject):
 
     def __init__(self, driver):
         super(AdminPage, self).__init__(driver=driver)
+        self.driver.implicitly_wait(3)
 
     def is_url_admin(self):
         return self.is_url(self.url)

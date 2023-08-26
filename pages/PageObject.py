@@ -1,9 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class PageObject:
-    #class_title_page = '[""]'
+    class_title_page = 'oxd-topbar-header-breadcrumb'
     class_option_popup_delete = 'orangehrm-modal-footer'
 
     def __init__(self, driver=None, browser=None):
@@ -20,6 +22,7 @@ class PageObject:
                 self.driver = webdriver.Edge()
             else:
                 raise Exception('Browser não suportado!')
+            self.driver.implicitly_wait(3)
             self.driver.maximize_window()
 
     def close(self):
@@ -29,7 +32,7 @@ class PageObject:
         return self.driver.current_url == url
 
     def has_title(self, title_text):
-        title_page = self.driver.find_element(By.CSS_SELECTOR, self.class_title_page).text
+        title_page = self.driver.find_element(By.CLASS_NAME, self.class_title_page).text
         return title_page == title_text
 
     def check_page(self, url, title_text):
@@ -37,6 +40,7 @@ class PageObject:
 
     def click_yes_delete_btn_modal(self):
         option = 'Yes, Delete'
+        WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, self.class_option_popup_delete)))
         options_popup_delete = self.driver.find_elements(By.CLASS_NAME, self.class_option_popup_delete)
         for i in range(len(options_popup_delete)):
             current_option = options_popup_delete[i]

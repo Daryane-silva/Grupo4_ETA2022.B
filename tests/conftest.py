@@ -1,5 +1,3 @@
-import time
-
 import pytest
 
 from pages.AddEmployeePage import AddEmployeePage
@@ -9,7 +7,7 @@ from pages.PIMPage import PIMPage
 
 
 def pytest_addoption(parser):
-    parser.addoption("--select_browser", default="edge", help="Select browser")
+    parser.addoption("--select_browser", default="chrome", help="Select browser")
 
 
 @pytest.fixture

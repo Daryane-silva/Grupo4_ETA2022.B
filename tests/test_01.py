@@ -1,7 +1,4 @@
-import time
-
 from pages.AdminPage import AdminPage
-
 
 
 class Test01:
@@ -12,4 +9,3 @@ class Test01:
         assert admin_p.is_url_admin(), 'Página Admin não encontrada!'
         admin_p.order_username()
         assert admin_p.check_username_order(), 'Nomes dos usuários não foram ordenados!'
-
